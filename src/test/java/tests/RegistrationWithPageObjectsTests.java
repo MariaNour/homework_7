@@ -12,7 +12,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 userGender = "Female",
                 userMobileNumber = "9377777777",
                 dayBirthDate = "01",
-                mounthBirthDate = "April",
+                monthBirthDate = "April",
                 yearBirthDate = "1994",
                 userSubjects = "Math",
                 userHobbies = "Reading",
@@ -28,7 +28,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setEmail(userEmail)
                 .setGender(userGender)
                 .setPhone(userMobileNumber)
-                .setBirthDate(dayBirthDate, mounthBirthDate, yearBirthDate)
+                .setBirthDate(dayBirthDate, monthBirthDate, yearBirthDate)
                 .setSubjects(userSubjects)
                 .setHobbies(userHobbies)
                 .uploadPicture(pictureName)
@@ -42,7 +42,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .verifyResult("Student Email", userEmail)
                 .verifyResult("Gender", " ")
                 .verifyResult("Mobile", userMobileNumber)
-                .verifyResult("Date of Birth", dayBirthDate +" "+ mounthBirthDate +"," + yearBirthDate)
+                .verifyResult("Date of Birth", dayBirthDate +" "+ monthBirthDate +"," + yearBirthDate)
                 .verifyResult("Subjects", userSubjects)
                 .verifyResult("Hobbies", userHobbies)
                 .verifyResult("Picture", pictureName)
