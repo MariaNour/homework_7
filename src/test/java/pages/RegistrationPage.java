@@ -17,7 +17,18 @@ public class RegistrationPage {
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
-            dateOfBirthInput = $("#dateOfBirthInput");
+            emailInput = $("#userEmail"),
+            genterInput = $("#genterWrapper"),
+            userNumberInput =$("#userNumber"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesWrapperInput =  $("#hobbiesWrapper"),
+            uploadPictureInput = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress"),
+            stateInput =$("#state"),
+            cityInput = $("#city"),
+            stateCityWrapperInput =$("#stateCity-wrapper"),
+            submitButton =$("#submit");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -47,62 +58,63 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setEmail(String value) {
-        $("#userEmail").setValue(value); // todo move to Selenide elements
+        emailInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setGender(String value) {
-        $("#genterWrapper").$(byText(value)).click(); // todo move to Selenide elements
+        genterInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setPhone(String value) {
-        $("#userNumber").setValue(value); // todo move to Selenide elements
+        userNumberInput.setValue(value);
 
         return this;
     }
 
+     public RegistrationPage setBirthDate(String day, String month, String year) {
+        dateOfBirthInput.click();
+        calendarComponent.setDate(day, month, year);
+        return this;
+    }
+
+
     public RegistrationPage setSubjects(String value) {
-        $("#subjectsInput").setValue(value).pressEnter(); // todo move to Selenide elements
+        subjectsInput.setValue(value).pressEnter(); // todo move to Selenide elements
 
         return this;
     }
 
     public RegistrationPage setHobbies(String value) {
-        $("#hobbiesWrapper").$(byText(value)).click(); // todo move to Selenide elements
+        hobbiesWrapperInput.$(byText(value)).click(); // todo move to Selenide elements
 
         return this;
     }
 
     public RegistrationPage uploadPicture(String value) {
-        $("#uploadPicture").uploadFromClasspath(value);
+        uploadPictureInput.uploadFromClasspath(value);
         return this;
     }
 
     public RegistrationPage setCurrentAddress (String value) {
-        $("#currentAddress").setValue(value); // todo move to Selenide elements
+        currentAddressInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setUserStateAndCity(String state, String city) {
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText(state)).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText(city)).click();
+        stateInput.click();
+        stateCityWrapperInput.$(byText(state)).click();
+        cityInput.click();
+        stateCityWrapperInput.$(byText(city)).click();
         return this;
     }
 
     public RegistrationPage submitBtton() {
-        $("#submit").click();
-        return this;
-    }
-
-    public RegistrationPage setBirthDate(String day, String month, String year) {
-        dateOfBirthInput.click();
-        calendarComponent.setDate(day, month, year);
+        submitButton.click();
         return this;
     }
 

@@ -19,7 +19,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 yearBirthDate = "1994",
                 userSubjects = "Math",
                 userHobbies = "Reading",
-                pictureName = "pictures/Alf.png",
+                pictureName = "Alf.png",
                 userCurrentAddress = "Lipchanskogo 5, apartment 22",
                 userState = "NCR",
                 userCity = "Delhi";
@@ -45,7 +45,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .verifyResult("Gender", " ")
                 .verifyResult("Mobile", userMobileNumber)
                 .verifyResult("Date of Birth", dayBirthDate +" "+ mounthBirthDate +"," + yearBirthDate)
-;
+                .verifyResult("Subjects", userSubjects)
+                .verifyResult("Hobbies", userHobbies)
+                .verifyResult("Picture", pictureName)
+                .verifyResult("Address", userCurrentAddress)
+                .verifyResult("State and City", userState + " " + userCity);
 
     }
 
