@@ -51,12 +51,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage clearLastName() {
-        lastNameInput.clear();
-
-        return this;
-    }
-
     public RegistrationPage setEmail(String value) {
         emailInput.setValue(value);
 
