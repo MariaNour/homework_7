@@ -14,9 +14,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 userEmail = "MN@mail.ru",
                 userGender = "Female",
                 userMobileNumber = "9377777777",
-                day = "01",
-                mounth = "April",
-                year = "1994";
+                dayBirthDate = "01",
+                mounthBirthDate = "April",
+                yearBirthDate = "1994",
+                userSubjects = "Math",
+                userHobbies = "Reading";
 
         registrationPage.openPage()
                 .setFirstName(userName)
@@ -24,10 +26,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setEmail(userEmail)
                 .setGender(userGender)
                 .setPhone(userMobileNumber)
-                .setBirthDate(day, mounth, year);
+                .setBirthDate(dayBirthDate, mounthBirthDate, yearBirthDate)
+                .setSubjects(userSubjects)
+                .setHobbies(userHobbies);
 
-        $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
+
         $("#uploadPicture").uploadFromClasspath("pictures/Alf.png");
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
@@ -41,7 +44,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .verifyResult("Student Email", userEmail)
                 .verifyResult("Gender", userGender)
                 .verifyResult("Mobile", userMobileNumber)
-                .verifyResult("Date of Birth", day +" "+ mounth +","+ year);
+                .verifyResult("Date of Birth", dayBirthDate +" "+ mounthBirthDate +"," + yearBirthDate);
 //        registrationPage.registrationResultsModal.verifyResult("Student Name", userName + " Egorov");
     }
 

@@ -62,6 +62,18 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setSubjects(String value) {
+        $("#subjectsInput").setValue(value).pressEnter(); // todo move to Selenide elements
+
+        return this;
+    }
+
+    public RegistrationPage setHobbies(String value) {
+        $("#hobbiesWrapper").$(byText(value)).click(); // todo move to Selenide elements
+
+        return this;
+    }
+
     public RegistrationPage setBirthDate(String day, String month, String year) {
         dateOfBirthInput.click();
         calendarComponent.setDate(day, month, year);
