@@ -22,6 +22,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 userCity = "Delhi";
 
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName(userName)
                 .setLastName(userLastName)
                 .setEmail(userEmail)

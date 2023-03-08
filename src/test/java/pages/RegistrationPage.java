@@ -39,6 +39,12 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
+    }
+
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
 
