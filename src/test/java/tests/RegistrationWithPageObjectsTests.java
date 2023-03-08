@@ -6,7 +6,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
     void successfulRegistrationTest() {
-        String  userName = "Maria",
+        String userName = "Maria",
                 userLastName = "Nour",
                 userEmail = "MN@mail.ru",
                 userGender = "Female",
@@ -34,15 +34,15 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .uploadPicture(pictureName)
                 .setCurrentAddress(userCurrentAddress)
                 .setUserStateAndCity(userState, userCity)
-                .submitBtton();
+                .submitButton();
 
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", userName + " "+ userLastName)
+                .verifyResult("Student Name", userName + " " + userLastName)
                 .verifyResult("Student Email", userEmail)
                 .verifyResult("Gender", " ")
                 .verifyResult("Mobile", userMobileNumber)
-                .verifyResult("Date of Birth", dayBirthDate +" "+ monthBirthDate +"," + yearBirthDate)
+                .verifyResult("Date of Birth", dayBirthDate + " " + monthBirthDate + "," + yearBirthDate)
                 .verifyResult("Subjects", userSubjects)
                 .verifyResult("Hobbies", userHobbies)
                 .verifyResult("Picture", pictureName)

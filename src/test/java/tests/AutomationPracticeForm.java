@@ -51,5 +51,5 @@ public class AutomationPracticeForm {
         $(".modal-body").shouldHave(text("Lipchanskogo 5, apartment 22"));
         $(".modal-body").shouldHave(text("NCR Delhi"));
         $("#closeLargeModal").click();
-       }
+    }
 }
