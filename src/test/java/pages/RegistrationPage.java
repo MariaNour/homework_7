@@ -81,6 +81,25 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setCurrentAddress (String value) {
+        $("#currentAddress").setValue(value); // todo move to Selenide elements
+
+        return this;
+    }
+
+    public RegistrationPage setUserStateAndCity(String state, String city) {
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText(state)).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText(city)).click();
+        return this;
+    }
+
+    public RegistrationPage submitBtton() {
+        $("#submit").click();
+        return this;
+    }
+
     public RegistrationPage setBirthDate(String day, String month, String year) {
         dateOfBirthInput.click();
         calendarComponent.setDate(day, month, year);

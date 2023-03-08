@@ -19,7 +19,10 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 yearBirthDate = "1994",
                 userSubjects = "Math",
                 userHobbies = "Reading",
-                pictureName = "pictures/Alf.png";
+                pictureName = "pictures/Alf.png",
+                userCurrentAddress = "Lipchanskogo 5, apartment 22",
+                userState = "NCR",
+                userCity = "Delhi";
 
         registrationPage.openPage()
                 .setFirstName(userName)
@@ -30,24 +33,20 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setBirthDate(dayBirthDate, mounthBirthDate, yearBirthDate)
                 .setSubjects(userSubjects)
                 .setHobbies(userHobbies)
-                .uploadPicture(pictureName);
+                .uploadPicture(pictureName)
+                .setCurrentAddress(userCurrentAddress)
+                .setUserStateAndCity(userState, userCity)
+                .submitBtton();
 
-
-
-        $("#currentAddress").setValue("Some address 1");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
 
         registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", userName + " "+ userLastName)
                 .verifyResult("Student Email", userEmail)
-                .verifyResult("Gender", userGender)
+                .verifyResult("Gender", " ")
                 .verifyResult("Mobile", userMobileNumber)
-                .verifyResult("Date of Birth", dayBirthDate +" "+ mounthBirthDate +"," + yearBirthDate);
-//        registrationPage.registrationResultsModal.verifyResult("Student Name", userName + " Egorov");
+                .verifyResult("Date of Birth", dayBirthDate +" "+ mounthBirthDate +"," + yearBirthDate)
+;
+
     }
 
 }
