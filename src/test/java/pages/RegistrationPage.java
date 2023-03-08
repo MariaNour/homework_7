@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -71,6 +73,11 @@ public class RegistrationPage {
     public RegistrationPage setHobbies(String value) {
         $("#hobbiesWrapper").$(byText(value)).click(); // todo move to Selenide elements
 
+        return this;
+    }
+
+    public RegistrationPage uploadPicture(String value) {
+        $("#uploadPicture").uploadFromClasspath(value);
         return this;
     }
 

@@ -18,7 +18,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 mounthBirthDate = "April",
                 yearBirthDate = "1994",
                 userSubjects = "Math",
-                userHobbies = "Reading";
+                userHobbies = "Reading",
+                pictureName = "pictures/Alf.png";
 
         registrationPage.openPage()
                 .setFirstName(userName)
@@ -28,10 +29,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setPhone(userMobileNumber)
                 .setBirthDate(dayBirthDate, mounthBirthDate, yearBirthDate)
                 .setSubjects(userSubjects)
-                .setHobbies(userHobbies);
+                .setHobbies(userHobbies)
+                .uploadPicture(pictureName);
 
 
-        $("#uploadPicture").uploadFromClasspath("pictures/Alf.png");
+
         $("#currentAddress").setValue("Some address 1");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
